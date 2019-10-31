@@ -9,13 +9,14 @@ class Person
         @hygiene = 8
     end 
     def rounds_to_between_inclusive(input, low, high)
-        if input >= high
+        case 
+        when input >= high
             10
-        elsif input <= low
+        when input <= low 
             0
         else
             input
-        end
+        end 
     end 
 
     def happiness=(new_happiness)
@@ -40,12 +41,15 @@ class Person
     end 
 
     def take_bath 
-        self.hygiene = @hygiene + 4
+        self.hygiene += 4
+        # self.hygiene = self.hygiene + 4
         "♪ Rub-a-dub just relaxing in the tub ♫"
     end 
     def work_out 
-        self.hygiene = @hygiene - 3
-        self.happiness = @happiness + 2
+        self.hygiene -= 3
+        # self.hygiene = @hygiene - 3
+        self.happiness += 2
+        # self.happiness = @happiness + 2
         "♪ another one bites the dust ♫"
     end 
 
@@ -68,8 +72,11 @@ class Person
     end
 
     def increment_both_happiness(friend_instance, value)
-        self.happiness = self.happiness + value 
-        friend_instance.happiness = friend_instance.happiness + value
+        self.happiness += value 
+        #self.happines = (self.happiness + value)
+        # self.happiness = self.happiness + value 
+        friend_instance.happiness += value 
+        # friend_instance.happiness = friend_instance.happiness + value
     end 
 
 
